@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="App2.MyPage">
+	<ContentPage.Content>
+        <StackLayout BackgroundColor = "#009fff">
+            <Label Text = "ITSOLS" FontSize = "30" VerticalOptions = "Center" HorizontalOptions = "Center" FontAttributes="Bold"/>
+
+            <Button Text = "Login" Clicked =  "NavigateButton_OnClicked" BackgroundColor = "#009fff"/>
+            <Button Text ="Map Information" Clicked = "Navigate_OnClicked" BackgroundColor = "#009fff"/>
+        </StackLayout>     
+	</ContentPage.Content>
+</ContentPage>
