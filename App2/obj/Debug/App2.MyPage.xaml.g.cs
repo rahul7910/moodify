@@ -11,7 +11,7 @@
 namespace App2 {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("/Users/rahulissar/Desktop/App2/App2/MyPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("/Users/rahulissar/Desktop/APP2/App2/MyPage.xaml")]
     public partial class MyPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

@@ -3,9 +3,9 @@
 	<ContentPage.Content>
         <StackLayout BackgroundColor = "#009fff">
             <Label Text = "ITSOLS" FontSize = "30" VerticalOptions = "Center" HorizontalOptions = "Center" FontAttributes="Bold"/>
-
             <Button Text = "Login" Clicked =  "NavigateButton_OnClicked" BackgroundColor = "#009fff"/>
             <Button Text ="Map Information" Clicked = "Navigate_OnClicked" BackgroundColor = "#009fff"/>
-        </StackLayout>     
-	</ContentPage.Content>
+            <Button Text ="DataBase" Clicked = "Navigate_OnClick" BackgroundColor = "#009fff"/>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

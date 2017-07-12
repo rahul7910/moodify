@@ -1,11 +1,10 @@
 ﻿<Properties StartupConfiguration="{C85517AC-3348-40D9-8955-F7D9F9786E2B}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="App2/MyPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="App2/ViewModel.cs">
     <Files>
-      <File FileName="App2/App.xaml" Line="7" Column="1" />
-      <File FileName="App2/App.xaml.cs" Line="1" Column="1" />
-      <File FileName="App2/App2Page.xaml" Line="21" Column="1" />
-      <File FileName="App2/App2Page.xaml.cs" Line="1" Column="1" />
-      <File FileName="App2/MyPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="App2/FacePage.xaml" Line="26" Column="1" />
+      <File FileName="App2/FacePage.xaml.cs" Line="20" Column="6" />
+      <File FileName="App2/ViewModel.cs" Line="21" Column="37" />
+      <File FileName="App2/ViewModel.Internal.cs" Line="7" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

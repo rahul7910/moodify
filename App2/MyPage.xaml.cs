@@ -12,6 +12,7 @@ namespace App2
         public MyPage()
         {
             InitializeComponent();
+         
         }
 		private async void NavigateButton_OnClicked(object sender, EventArgs e)
 		{
@@ -20,7 +21,10 @@ namespace App2
         private async void Navigate_OnClicked(object sender, EventArgs e ){
             await Navigation.PushAsync(new AzureTable());
         }
-
+		private async void Navigate_OnClick(object sender, EventArgs e)
+		{
+            await Navigation.PushAsync(new FacePage());
+		}
     }
 
 }
