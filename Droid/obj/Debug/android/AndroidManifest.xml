@@ -5,19 +5,19 @@
   <uses-permission android:name="android.permission.CAMERA" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
   <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
   <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
   <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <uses-feature android:name="android.hardware.location.gps" />
+  <uses-feature android:name="android.hardware.location.network" />
   <uses-feature android:name="android.hardware.camera" android:required="false" />
   <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
-  <uses-feature android:glEsVersion="0x00020000" android:required="true" />
-  <application android:label="App2" android:name="md52d4434644cc3703013f0f1fc9586f194.MainApplication" android:allowBackup="true" android:icon="@drawable/icon" android:debuggable="true">
-    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
-    <activity android:configChanges="orientation|screenSize" android:icon="@drawable/icon" android:label="App2.Droid" android:theme="@style/MyTheme" android:name="md52d4434644cc3703013f0f1fc9586f194.MainActivity">
+  <application android:label="App2" android:name="md544269abc02b43bc54f2fd019d9394479.MainApplication" android:allowBackup="true" android:icon="@drawable/icon" android:debuggable="true">
+    <activity android:configChanges="orientation|screenSize" android:icon="@drawable/icon" android:label="App2.Droid" android:theme="@style/MyTheme" android:name="md544269abc02b43bc54f2fd019d9394479.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
@@ -25,7 +25,7 @@
     </activity>
     <activity android:label="Web Authenticator" android:name="md56beaf3ca16f9b29c56822643de3b05fa.FormAuthenticatorActivity" />
     <activity android:label="Web Authenticator" android:name="md56beaf3ca16f9b29c56822643de3b05fa.WebAuthenticatorActivity" />
-    <activity android:configChanges="orientation|screenSize" android:name="md5a3e164e78ade0c22cefea770ddd0bc49.MediaPickerActivity" />
+    <activity android:configChanges="orientation|screenSize" android:name="md5f1b52d9f1d5d1981437e7e130649468a.MediaPickerActivity" />
     <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="2147483647" android:authorities="com.companyname.app2.mono.MonoRuntimeProvider.__mono_init__" />
     <!--suppress ExportedReceiver-->
     <receiver android:name="mono.android.Seppuku">
@@ -34,6 +34,9 @@
         <category android:name="mono.android.intent.category.SEPPUKU.com.companyname.app2" />
       </intent-filter>
     </receiver>
+    <activity android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:exported="false" />
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
   </application>
   <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCOPpNAouMuXU57_iR_zHIj5VO6xvAp9_s" />
+  <meta-data android:name="android.support.VERSION" android:value="25.3.1" />
 </manifest>

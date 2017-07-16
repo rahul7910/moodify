@@ -19,9 +19,10 @@ namespace App2
 
 		}
 
-		async void Handle_ClickedAsync(object sender, EventArgs e)
+		async void Handle_ClickedAsync(object sender, System.EventArgs e)
 		{
-            List<EmployeeModel> EmployeeInformation = await AzureManager.AzureManagerInstance.GetEmployeeInformation();
+			loading.IsRunning = true;
+            List < EmployeeModel > EmployeeInformation = await AzureManager.AzureManagerInstance.GetEmployeeInformation();
 
             foreach (EmployeeModel model in EmployeeInformation)
 			{
@@ -32,7 +33,7 @@ namespace App2
 			}
 
             EmployeeList.ItemsSource = EmployeeInformation;
-
+			loading.IsRunning = false;
 		}
 
 	}

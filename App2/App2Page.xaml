@@ -1,20 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    xmlns:local="clr-namespace:App2" x:Class="App2.App2Page">
-    <ContentPage.Content>
-    <StackLayout BackgroundColor = "#009fff" Orientation = "Vertical"> 
-        <Button x:Name = "TakePictureButton"
-            Clicked = "TakePictureButton_Clicked"
-            Text = "Take from camera"
-            BackgroundColor = "#009fff"/>  
-        <Label Text = "Please take photo" FontSize = "30" VerticalOptions = "Center" HorizontalOptions = "Center" FontAttributes= "Bold"/>   
-        <StackLayout Orientation = "Horizontal"> 
-            <Label x:Name = "TagLabel"/>
-            <Label x:Name = "PredicitionLabel"/>
-        </StackLayout> 
-       
-        <Image x:Name="Image1" Aspect="AspectFit"/>    
-    </StackLayout> 
-   </ContentPage.Content>      
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="App2.App2Page" Title="App2">
+    <StackLayout Margin="20" Orientation="Vertical">
+        <Button Text="FaceScan" Clicked="loadCamera" />
+        <StackLayout Orientation="Horizontal">
+            <Label x:Name="TagLabel">
+            </Label>
+            <Label x:Name="PredictionLabel">
+            </Label>
+        </StackLayout>
+        <Image x:Name="image" Aspect="AspectFit"/>
+    </StackLayout>
 </ContentPage>
 

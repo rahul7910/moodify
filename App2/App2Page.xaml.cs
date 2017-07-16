@@ -1,127 +1,127 @@
-﻿using System;
+﻿using Plugin.Media;
+using Plugin.Media.Abstractions;
+using System;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
-using Plugin.Media;
-using Plugin.Media.Abstractions;
 using Xamarin.Forms;
+using Newtonsoft.Json.Linq;
+using System.Linq;
+using App2.DataModels;
+using Plugin.Geolocator;
 
 namespace App2
 {
     public partial class App2Page : ContentPage
-    {
-        public App2Page()
-        {
-            InitializeComponent();
-        }
-		
-		
-//        private async void UploadPictureButton_Clicked(object sender, EventArgs e)
- //       {
-   //         if (!CrossMedia.Current.IsPickPhotoSupported)
-    //        {
-   //             await DisplayAlert("No upload", "Picking a photo is not supported.", "OK");
-   //             return;
-   //         }
-   //         var file = await CrossMedia.Current.PickPhotoAsync();
-   //         if (file == null)
-   //             return;
+	{
+		public App2Page()
+		{
+			InitializeComponent();
+		}
 
-   //         Image1.Source = ImageSource.FromStream(() => file.GetStream());
+		private async void loadCamera(object sender, EventArgs e)
+		{
+			await CrossMedia.Current.Initialize();
 
-//        }
+			if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+			{
+				await DisplayAlert("No Camera", ":( No camera available.", "OK");
+				return;
+			}
 
-        private async void TakePictureButton_Clicked(object sender, EventArgs e)
-        {
+			MediaFile file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
+			{
+				PhotoSize = PhotoSize.Medium,
+				Directory = "Sample",
+				Name = $"{DateTime.UtcNow}.jpg"
+			});
 
-            await CrossMedia.Current.Initialize();
+			if (file == null)
+				return;
 
-            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
-            {
-                await DisplayAlert("No Camera", ":( No camera available.", "OK");
-                return;
-            }
+			image.Source = ImageSource.FromStream(() =>
+			{
+				return file.GetStream();
+			});
 
-            MediaFile file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
-            {
-                PhotoSize = PhotoSize.Medium,
-                Directory = "Sample",
-                Name = $"{DateTime.UtcNow}.jpg"
-            });
+			await postLocationAsync();
 
-            if (file == null)
-                return;
+			await MakePredictionRequest(file);
+		}
 
-            Image1.Source = ImageSource.FromStream(() =>
-            {
-                return file.GetStream();
-            });
+		async Task postLocationAsync()
+		{
 
-           // await postLocationAsync();
+			var locator = CrossGeolocator.Current;
+			locator.DesiredAccuracy = 50;
 
-            await MakePredictionRequest(file);
-        }
+        //    var position = await locator.GetPositionAsync(10000);
+			var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(10));
 
-        static byte[] GetImageAsByteArray(MediaFile file)
-        {
-            var stream = file.GetStream();
-            BinaryReader binaryReader = new BinaryReader(stream);
-            return binaryReader.ReadBytes((int)stream.Length);
-        }
+            EmployeeModel model = new EmployeeModel()
+			{
+				Longitude = (float)position.Longitude,
+				Latitude = (float)position.Latitude
 
-        async Task MakePredictionRequest(MediaFile file)
-        {
-            var client = new HttpClient();
+			};
 
-            client.DefaultRequestHeaders.Add("Prediction-Key", "da8e855685e645ba93a3c7849b48b70f");
+            await AzureManager.AzureManagerInstance.PostEmployeeInformation(model);
+		}
 
-            //Where all the pictures are stored
-            string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/Prediction/763c1ac4-c0d8-4876-944e-640a9d6fe57d/image?iterationId=56c0bd2c-8c37-41bc-bf82-9647dd4844fc";
+		static byte[] GetImageAsByteArray(MediaFile file)
+		{
+			var stream = file.GetStream();
+			BinaryReader binaryReader = new BinaryReader(stream);
+			return binaryReader.ReadBytes((int)stream.Length);
+		}
 
-            HttpResponseMessage response;
+		async Task MakePredictionRequest(MediaFile file)
+		{
+			var client = new HttpClient();
 
-            byte[] byteData = GetImageAsByteArray(file);
+			client.DefaultRequestHeaders.Add("Prediction-Key", "da8e855685e645ba93a3c7849b48b70f");
 
-            using (var content = new ByteArrayContent(byteData))
-            {
+			string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/Prediction/763c1ac4-c0d8-4876-944e-640a9d6fe57d/image?iterationId=0415831e-ab1f-4d2f-9282-23a184a5e844";
 
-                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-                response = await client.PostAsync(url, content);
+			HttpResponseMessage response;
 
+			byte[] byteData = GetImageAsByteArray(file);
 
-                if (response.IsSuccessStatusCode)
-                {
-                    var responseString = await response.Content.ReadAsStringAsync();
+			using (var content = new ByteArrayContent(byteData))
+			{
 
-                    JObject rss = JObject.Parse(responseString);
+				content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+				response = await client.PostAsync(url, content);
 
 
-                    //Get all Prediction Values
-                    var Probability = from p in rss["Predictions"] select (string)p["Probability"];
-                    var Tag = from p in rss["Predictions"] select (string)p["Tag"];
+				if (response.IsSuccessStatusCode)
+				{
+					var responseString = await response.Content.ReadAsStringAsync();
 
-                    //Truncate values to labels in XAML
-                    foreach (var item in Tag)
-                    {
-                        TagLabel.Text += item + ": \n";
+					JObject rss = JObject.Parse(responseString);
 
-                    }
+					//Querying with LINQ
+					//Get all Prediction Values
+					var Probability = from p in rss["Predictions"] select (string)p["Probability"];
+					var Tag = from p in rss["Predictions"] select (string)p["Tag"];
+                   
 
-                    foreach (var item in Probability)
-                    {
-                        PredicitionLabel.Text += item + "\n";
-                    }
+					//Truncate values to labels in XAML
+					foreach (var item in Tag)
+					{
+						TagLabel.Text += item + ": \n";
+					}
 
-                }
+					foreach (var item in Probability)
+					{
+						PredictionLabel.Text += item + "\n";
+					}
+				}
 
-
-                //Get rid of file once we have finished using it
-                file.Dispose();
-            }
-
-        }
-    }
+				//Get rid of file once we have finished using it
+				file.Dispose();
+			}
+		}
+	}
 }

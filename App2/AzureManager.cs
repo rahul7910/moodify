@@ -40,5 +40,12 @@ namespace App2
 		{
             return await this.employeeModelTable.ToListAsync();
 		}
+        public async Task PostEmployeeInformation(EmployeeModel employeeModel){
+            await this.employeeModelTable.InsertAsync(employeeModel);
+        }
 	}
 }
+
+
+
+

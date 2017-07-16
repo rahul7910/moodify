@@ -34,6 +34,7 @@
 /Users/rahulissar/Desktop/APP2/App2/bin/Debug/Plugin.Geolocator.pdb
 /Users/rahulissar/Desktop/APP2/App2/bin/Debug/Plugin.Geolocator.xml
 /Users/rahulissar/Desktop/APP2/App2/obj/Debug/App2.csproj.App.config
+/Users/rahulissar/Desktop/APP2/App2/obj/Debug/App2.csprojResolveAssemblyReference.cache
 /Users/rahulissar/Desktop/APP2/App2/obj/Debug/App2.csproj.CoreCompileInputs.cache
 /Users/rahulissar/Desktop/APP2/App2/obj/Debug/App2.App.xaml.g.cs
 /Users/rahulissar/Desktop/APP2/App2/obj/Debug/App2.App2Page.xaml.g.cs
