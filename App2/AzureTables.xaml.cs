@@ -10,7 +10,12 @@ namespace App2
 {
 	public partial class AzureTable : ContentPage
 	{
-		Geocoder geoCoder;
+        void Handle_Clicked(object sender, System.EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        Geocoder geoCoder;
 
 		public AzureTable()
 		{
@@ -36,5 +41,15 @@ namespace App2
 			loading.IsRunning = false;
 		}
 
+        //For the maps button take to new page and then it will load the map 
+        //Create new map content page 
+
+        public async Task Handle_ClickAsync(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MapPage());
+        }
+
+    }
+
 	}
-}
+

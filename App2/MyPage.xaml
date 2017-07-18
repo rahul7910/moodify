@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="App2.MyPage">
 	<ContentPage.Content>
-        <StackLayout BackgroundColor = "#009fff">
-            <Label Text = "ITSOLS" FontSize = "30" VerticalOptions = "Center" HorizontalOptions = "Center" FontAttributes="Bold"/>
-            <Button Text = "Login" Clicked =  "NavigateButton_OnClicked" BackgroundColor = "#009fff"/>
-            <Button Text ="Current Location" Clicked = "Navigate_OnClicked" BackgroundColor = "#009fff"/>
-            <Button Text ="Employees" Clicked = "Navigate_OnClick" BackgroundColor = "#009fff"/>
+        <StackLayout BackgroundColor = "Black" Orientation="Vertical"  VerticalOptions="FillAndExpand">
+            <Label Text = "ITSOLS" FontSize = "30" VerticalOptions = "Center" HorizontalOptions = "Center" FontAttributes="Bold" TextColor = "White"/>
+            <StackLayout Orientation="Vertical" VerticalOptions = "FillAndExpand">
+                <Button Text = "Login" Clicked =  "NavigateButton_OnClicked" TextColor = "White" BackgroundColor = "#fba400" WidthRequest = "80" HeightRequest = "80"/>
+            </StackLayout> 
+            <StackLayout Orientation="Vertical"  VerticalOptions="FillAndExpand">
+                <Button Text ="Current Location" Clicked = "Navigate_OnClicked" TextColor = "White" BackgroundColor = "#fba400" WidthRequest = "80" HeightRequest = "80"/>
+            </StackLayout> 
+            <StackLayout Orientation="Vertical"  VerticalOptions="FillAndExpand">    
+                <Button Text ="Employees" Clicked = "Navigate_OnClick" TextColor = "White" BackgroundColor = "#fba400" WidthRequest = "80" HeightRequest = "80"/>
+              </StackLayout> 
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
+

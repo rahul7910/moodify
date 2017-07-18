@@ -12,11 +12,13 @@ namespace App2
         public MyPage()
         {
             InitializeComponent();
-         
+			
+           
         }
 		private async void NavigateButton_OnClicked(object sender, EventArgs e)
 		{
             await Navigation.PushAsync(new App2Page());
+
 		}
         private async void Navigate_OnClicked(object sender, EventArgs e ){
             await Navigation.PushAsync(new AzureTable());

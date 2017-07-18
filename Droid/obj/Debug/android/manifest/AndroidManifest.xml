@@ -16,8 +16,9 @@
   <uses-feature android:name="android.hardware.location.network" />
   <uses-feature android:name="android.hardware.camera" android:required="false" />
   <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
-  <application android:label="App2" android:name="md544269abc02b43bc54f2fd019d9394479.MainApplication" android:allowBackup="true" android:icon="@drawable/icon" android:debuggable="true">
-    <activity android:configChanges="orientation|screenSize" android:icon="@drawable/icon" android:label="App2.Droid" android:theme="@style/MyTheme" android:name="md544269abc02b43bc54f2fd019d9394479.MainActivity">
+  <application android:label="App2" android:name="md5d12fdbe41a9a3963968b7fb77d65c7d3.MainApplication" android:allowBackup="true" android:icon="@drawable/icon" android:debuggable="true">
+    <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyBXo1u2pub1d6dWBAnbSYgYQlZWjbQG4_c" />
+    <activity android:configChanges="orientation|screenSize" android:icon="@drawable/icon" android:label="ITSOLS" android:theme="@style/MyTheme" android:name="md5d12fdbe41a9a3963968b7fb77d65c7d3.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
@@ -37,6 +38,5 @@
     <activity android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar" android:exported="false" />
     <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
   </application>
-  <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCOPpNAouMuXU57_iR_zHIj5VO6xvAp9_s" />
   <meta-data android:name="android.support.VERSION" android:value="25.3.1" />
 </manifest>

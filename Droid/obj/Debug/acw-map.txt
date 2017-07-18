@@ -1,11 +1,11 @@
-App2.Droid.MainActivity, App2.Droid;md544269abc02b43bc54f2fd019d9394479.MainActivity
-App2.Droid.MainActivity, App2.Droid, Version=1.0.6406.29664, Culture=neutral, PublicKeyToken=null;md544269abc02b43bc54f2fd019d9394479.MainActivity
-App2.Droid.MainActivity;md544269abc02b43bc54f2fd019d9394479.MainActivity
-app2.droid.MainActivity;md544269abc02b43bc54f2fd019d9394479.MainActivity
-App2.Droid.MainApplication, App2.Droid;md544269abc02b43bc54f2fd019d9394479.MainApplication
-App2.Droid.MainApplication, App2.Droid, Version=1.0.6406.29664, Culture=neutral, PublicKeyToken=null;md544269abc02b43bc54f2fd019d9394479.MainApplication
-App2.Droid.MainApplication;md544269abc02b43bc54f2fd019d9394479.MainApplication
-app2.droid.MainApplication;md544269abc02b43bc54f2fd019d9394479.MainApplication
+App2.Droid.MainActivity, App2.Droid;md5d12fdbe41a9a3963968b7fb77d65c7d3.MainActivity
+App2.Droid.MainActivity, App2.Droid, Version=1.0.6408.38174, Culture=neutral, PublicKeyToken=null;md5d12fdbe41a9a3963968b7fb77d65c7d3.MainActivity
+App2.Droid.MainActivity;md5d12fdbe41a9a3963968b7fb77d65c7d3.MainActivity
+app2.droid.MainActivity;md5d12fdbe41a9a3963968b7fb77d65c7d3.MainActivity
+App2.Droid.MainApplication, App2.Droid;md5d12fdbe41a9a3963968b7fb77d65c7d3.MainApplication
+App2.Droid.MainApplication, App2.Droid, Version=1.0.6408.38174, Culture=neutral, PublicKeyToken=null;md5d12fdbe41a9a3963968b7fb77d65c7d3.MainApplication
+App2.Droid.MainApplication;md5d12fdbe41a9a3963968b7fb77d65c7d3.MainApplication
+app2.droid.MainApplication;md5d12fdbe41a9a3963968b7fb77d65c7d3.MainApplication
 Xamarin.Auth._MobileServices.AndroidAccountStore/SecretAccount, Microsoft.WindowsAzure.Mobile.Ext;md56beaf3ca16f9b29c56822643de3b05fa.AndroidAccountStore_SecretAccount
 Xamarin.Auth._MobileServices.AndroidAccountStore+SecretAccount, Microsoft.WindowsAzure.Mobile.Ext, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35;md56beaf3ca16f9b29c56822643de3b05fa.AndroidAccountStore_SecretAccount
 Xamarin.Auth._MobileServices.AndroidAccountStore.SecretAccount;md56beaf3ca16f9b29c56822643de3b05fa.AndroidAccountStore_SecretAccount
